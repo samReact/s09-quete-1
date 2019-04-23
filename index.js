@@ -1,9 +1,12 @@
+require("dotenv").config();
 const express = require("express");
+
+const { Item } = require("./data-layer/models");
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send({ message: "Hello world!" });
+app.get("/api/items", async (req, res) => {
+  res.send({ items: await Item.findAll() });
 });
 
 const PORT = process.env.PORT || 8007;
