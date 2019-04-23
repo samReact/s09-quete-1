@@ -1,39 +1,29 @@
 "use strict";
+if (process.env.PROD) {
+  const items = [
+    {
+      id: "HAMMER-1234",
+      name: "Hammer"
+    },
+    {
+      id: "NAILS-5678",
+      name: "Nails"
+    }
+  ];
 
-const items = process.env.PROD
-  ? [
-      {
-        id: "HAMMER-PROkdskD",
-        name: "HammerProd"
-      },
-      {
-        id: "NAILS-PdsdsROD",
-        name: "NailsProd"
-      }
-    ]
-  : [
-      {
-        id: "HAMMER-PROD",
-        name: "HammerDev"
-      },
-      {
-        id: "NAILS-PROD",
-        name: "NailsDev"
-      }
-    ];
+  module.exports = {
+    up: (queryInterface, Sequelize) => {
+      return queryInterface.bulkInsert("Items", items, {});
+    },
 
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert("Items", items, {});
-  },
-
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete(
-      "Items",
-      {
-        id: { [Sequelize.Op.in]: items.map(item => item.id) }
-      },
-      {}
-    );
-  }
-};
+    down: (queryInterface, Sequelize) => {
+      return queryInterface.bulkDelete(
+        "Items",
+        {
+          id: { [Sequelize.Op.in]: items.map(item => item.id) }
+        },
+        {}
+      );
+    }
+  };
+}
