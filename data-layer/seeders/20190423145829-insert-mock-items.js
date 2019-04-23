@@ -14,19 +14,17 @@ const items = [
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return process.env.PROD
-      ? null
+      ? queryInterface.bulkInsert("Items", {})
       : queryInterface.bulkInsert("Items", items, {});
   },
 
   down: (queryInterface, Sequelize) => {
-    return process.env.PROD
-      ? null
-      : queryInterface.bulkDelete(
-          "Items",
-          {
-            id: { [Sequelize.Op.in]: items.map(item => item.id) }
-          },
-          {}
-        );
+    queryInterface.bulkDelete(
+      "Items",
+      {
+        id: { [Sequelize.Op.in]: items.map(item => item.id) }
+      },
+      {}
+    );
   }
 };
