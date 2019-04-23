@@ -1,7 +1,16 @@
 "use strict";
 
 const items = process.env.PROD
-  ? []
+  ? [
+      {
+        id: "HAMMER-PROkdskD",
+        name: "Hammer"
+      },
+      {
+        id: "NAILS-PdsdsROD",
+        name: "Nails"
+      }
+    ]
   : [
       {
         id: "HAMMER-PROD",
