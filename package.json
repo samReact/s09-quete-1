@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "start:watch": "nodemon ."
+    "start:watch": "nodemon .",
+    "build": "sequelize db:migrate && sequelize db:seed:all && cd web-app && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
