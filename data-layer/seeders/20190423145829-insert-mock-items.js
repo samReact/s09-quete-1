@@ -4,21 +4,21 @@ const items = process.env.PROD
   ? [
       {
         id: "HAMMER-PROkdskD",
-        name: "Hammer"
+        name: "HammerProd"
       },
       {
         id: "NAILS-PdsdsROD",
-        name: "Nails"
+        name: "NailsProd"
       }
     ]
   : [
       {
         id: "HAMMER-PROD",
-        name: "Hammer"
+        name: "HammerDev"
       },
       {
         id: "NAILS-PROD",
-        name: "Nails"
+        name: "NailsDev"
       }
     ];
 
