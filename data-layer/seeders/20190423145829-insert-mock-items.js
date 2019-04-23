@@ -1,13 +1,13 @@
 "use strict";
-if (process.env.PROD) {
+if (process.env.MOCK_DATA_ITEMS_SEEDER) {
   const items = [
     {
       id: "HAMMER-1234",
-      name: "Hammer"
+      name: "HammerProd"
     },
     {
       id: "NAILS-5678",
-      name: "Nails"
+      name: "NailsProd"
     }
   ];
 
