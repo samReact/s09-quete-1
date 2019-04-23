@@ -4,12 +4,12 @@ const items = process.env.PROD
   ? []
   : [
       {
-        id: "zorro",
-        name: "Zorro"
+        id: "HAMMER-PROD",
+        name: "Hammer"
       },
       {
-        id: "iron",
-        name: "Iron man"
+        id: "NAILS-PROD",
+        name: "Nails"
       }
     ];
 
