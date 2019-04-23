@@ -13,20 +13,16 @@ const items = [
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    process.env.PROD
-      ? queryInterface.bulkInsert("Items", {})
-      : queryInterface.bulkInsert("Items", items, {});
+    return queryInterface.bulkInsert("Items", items, {});
   },
 
   down: (queryInterface, Sequelize) => {
-    process.env.PROD
-      ? queryInterface.bulkDelete(
-          "Items",
-          {
-            id: { [Sequelize.Op.in]: items.map(item => item.id) }
-          },
-          {}
-        )
-      : queryInterface.bulkDelete("Items", {});
+    return queryInterface.bulkDelete(
+      "Items",
+      {
+        id: { [Sequelize.Op.in]: items.map(item => item.id) }
+      },
+      {}
+    );
   }
 };
