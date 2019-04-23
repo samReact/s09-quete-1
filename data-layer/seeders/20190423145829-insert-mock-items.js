@@ -1,6 +1,6 @@
 "use strict";
 if (process.env.MOCK_DATA_ITEMS_SEEDER) {
-  const items = [
+  const itemsMock = [
     {
       id: "HAMMER-1234",
       name: "HammerProd"
@@ -13,14 +13,14 @@ if (process.env.MOCK_DATA_ITEMS_SEEDER) {
 
   module.exports = {
     up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert("Items", items, {});
+      return queryInterface.bulkInsert("Items", itemsMock, {});
     },
 
     down: (queryInterface, Sequelize) => {
       return queryInterface.bulkDelete(
         "Items",
         {
-          id: { [Sequelize.Op.in]: items.map(item => item.id) }
+          id: { [Sequelize.Op.in]: itemsMock.map(item => item.id) }
         },
         {}
       );
