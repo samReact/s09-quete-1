@@ -7,6 +7,6 @@ const config = {
 };
 
 module.exports = {
-  development: { config: config, dialect: "postgres" },
+  development: config,
   production: config
 };
